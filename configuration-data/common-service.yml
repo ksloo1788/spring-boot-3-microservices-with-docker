@@ -1,0 +1,32 @@
+server:
+  port: ${PORT_NUMBER:58111}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:58010/eureka/}
+    healthcheck:
+      enabled: true
+logging:
+  file:
+    path: ../logs/${spring.application.name}/${server.port}
+    max-size: 10MB
+    max-history: 30
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n'
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n'
+  level:
+    com:
+      netflix:
+        discovery: OFF
+        eureka: OFF
+      looks: INFO
+    org:
+      springframework: INFO
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+  endpoint:
+    info:
+      enabled: true
