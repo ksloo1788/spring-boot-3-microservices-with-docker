@@ -26,8 +26,8 @@ It also shows how to package each application in Docker containers and run them 
 To install this example application, run the following commands:
 
 ```bash
-git clone https://github.com/ksloo1788/spring-boot-microservices-with-docker.git
-cd spring-boot-microservices-with-docker
+git clone https://github.com/ksloo1788/spring-boot-3-microservices-with-docker.git
+cd spring-boot-3-microservices-with-docker
 ```
 
 Run the following command from the root folder to create Docker containers to build Java libraries for all Spring Boot Applications.
