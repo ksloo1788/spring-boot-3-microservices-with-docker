@@ -2,4 +2,4 @@ spring:
   application:
     name: common-service
   config:
-    import: "configserver:${CONFIG_SERVER:http://localhost:58020}"
+    import: "configserver:${CONFIG_SERVER:http://localhost:8020}"

@@ -23,19 +23,19 @@ services:
     depends_on:
       - prometheus
   registry-server:
-    container_name: registry-server
+    container_name: service-registry-server
     build:
       context: service-registry-server
       dockerfile: Dockerfile
-    image: service-registry-server:latest
+    image: service-registry-server
     ports:
-      - 58010:58010
+      - 8010:8010
     networks:
       - spring-cloud-network
     volumes:
       - "./logs:/logs"
     healthcheck:
-      test: "curl --fail --silent localhost:58010/actuator/health | grep UP || exit 1"
+      test: "curl --fail --silent localhost:8010/actuator/health | grep UP || exit 1"
       interval: 20s
       timeout: 5s
       retries: 5
@@ -47,18 +47,18 @@ services:
       dockerfile: Dockerfile
     image: configuration-server
     ports:
-      - 58020:58020
+      - 8020:8020
     networks:
       - spring-cloud-network
     volumes:
       - "./logs:/logs"
       - "./configuration-data:/configuration-data"
     environment:
-      - EUREKA_SERVER=http://registry-server:58010/eureka
+      - EUREKA_SERVER=http://registry-server:8010/eureka
     depends_on:
       - registry-server
     healthcheck:
-      test: "curl --fail --silent localhost:58020/actuator/health | grep UP || exit 1"
+      test: "curl --fail --silent localhost:8020/actuator/health | grep UP || exit 1"
       interval: 20s
       timeout: 5s
       retries: 5
@@ -70,20 +70,20 @@ services:
       dockerfile: Dockerfile
     image: gateway-server
     ports:
-      - 58000:58000
+      - 8000:8000
     networks:
       - spring-cloud-network
     volumes:
       - "./logs:/logs"
     environment:
-      - EUREKA_SERVER=http://registry-server:58010/eureka
-      - CONFIG_SERVER=http://configuration-server:58020/
+      - EUREKA_SERVER=http://registry-server:8010/eureka
+      - CONFIG_SERVER=http://configuration-server:8020/
       - KEYSTORE_PATH=/bin/keystore.p12
       - PORT_NUMBER=58112
     depends_on:
       - configuration-server
     healthcheck:
-      test: "curl --fail --silent localhost:58000/actuator/health | grep UP || exit 1"
+      test: "curl --fail --silent localhost:8000/actuator/health | grep UP || exit 1"
       interval: 20s
       timeout: 5s
       retries: 5
@@ -95,22 +95,22 @@ services:
       context: common-service
       dockerfile: Dockerfile
       args:
-        - PORT_NUMBER=58111
+        - PORT_NUMBER=8111
     image: common-service
     ports:
-      - 58111:58111
+      - 8111:8111
     networks:
       - spring-cloud-network
     volumes:
       - "./logs:/logs"
     environment:
-      - EUREKA_SERVER=http://registry-server:58010/eureka
-      - CONFIG_SERVER=http://configuration-server:58020/
-      - PORT_NUMBER=58111
+      - EUREKA_SERVER=http://registry-server:8010/eureka
+      - CONFIG_SERVER=http://configuration-server:8020/
+      - PORT_NUMBER=8111
     depends_on:
       - gateway-server
     healthcheck:
-      test: "curl --fail --silent localhost:58111/actuator/health | grep UP || exit 1"
+      test: "curl --fail --silent localhost:8111/actuator/health | grep UP || exit 1"
       interval: 20s
       timeout: 5s
       retries: 5
@@ -122,22 +122,22 @@ services:
       context: common-service
       dockerfile: Dockerfile
       args:
-        - PORT_NUMBER=58111
+        - PORT_NUMBER=8111
     image: common-service
     ports:
-      - 58112:58112
+      - 8112:8112
     networks:
       - spring-cloud-network
     volumes:
       - "./logs:/logs"
     environment:
-      - EUREKA_SERVER=http://registry-server:58010/eureka
-      - CONFIG_SERVER=http://configuration-server:58020/
-      - PORT_NUMBER=58112
+      - EUREKA_SERVER=http://registry-server:8010/eureka
+      - CONFIG_SERVER=http://configuration-server:8020/
+      - PORT_NUMBER=8112
     depends_on:
       - gateway-server
     healthcheck:
-      test: "curl --fail --silent localhost:58112/actuator/health | grep UP || exit 1"
+      test: "curl --fail --silent localhost:8112/actuator/health | grep UP || exit 1"
       interval: 20s
       timeout: 5s
       retries: 5

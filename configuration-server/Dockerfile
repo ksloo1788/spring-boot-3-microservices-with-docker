@@ -3,5 +3,5 @@ RUN yum update -y; yum clean all
 RUN yum install java-17-openjdk -y
 MAINTAINER JeffLKS
 COPY target/configuration-server-1.0.0.jar /bin/configuration-server.jar
-EXPOSE 58020
+EXPOSE 8020
 ENTRYPOINT ["java","-jar","/bin/configuration-server.jar"]

@@ -1,5 +1,5 @@
 server:
-  port: 58020
+  port: 8020
 spring:
   application:
     name: configuration-server
@@ -13,7 +13,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_SERVER:http://localhost:58010/eureka/}
+      defaultZone: ${EUREKA_SERVER:http://localhost:8010/eureka/}
     healthcheck:
       enabled: true
   instance:

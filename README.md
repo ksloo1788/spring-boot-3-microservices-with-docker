@@ -49,7 +49,7 @@ docker image prune -f
 ```
 
 **TIP:** 
-After everything starts, you should be able to check Eureka Service Registry at `http://localhost:58010`.
+After everything starts, you should be able to check Eureka Service Registry at `http://localhost:8010`.
 
 ## Links
 

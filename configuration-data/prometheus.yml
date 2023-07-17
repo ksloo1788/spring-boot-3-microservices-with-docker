@@ -10,7 +10,7 @@ scrape_configs:
     scheme: https
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['host.docker.internal:58000']
+      - targets: ['host.docker.internal:8000']
         labels:
           application: 'gateway-server'
     tls_config:

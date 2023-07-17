@@ -1,9 +1,9 @@
 server:
-  port: ${PORT_NUMBER:58111}
+  port: ${PORT_NUMBER:8111}
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_SERVER:http://localhost:58010/eureka/}
+      defaultZone: ${EUREKA_SERVER:http://localhost:8010/eureka/}
     healthcheck:
       enabled: true
 logging:
