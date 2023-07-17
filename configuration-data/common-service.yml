@@ -19,7 +19,7 @@ logging:
       netflix:
         discovery: OFF
         eureka: OFF
-      looks: INFO
+      jefflks: INFO
     org:
       springframework: INFO
 management:

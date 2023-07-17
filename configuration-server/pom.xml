@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.jefflks</groupId>
+	<groupId>com.jefflks.config</groupId>
 	<artifactId>configuration-server</artifactId>
 	<name>configuration-server</name>
 	<description>configuration-server</description>
@@ -10,19 +10,19 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.6</version>
+		<version>3.1.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>17</java.version>
-		<spring-cloud.version>2022.0.2</spring-cloud.version>
-		<dependency-check-maven.version>8.2.1</dependency-check-maven.version>
-		<maven-pmd-plugin.version>3.20.0</maven-pmd-plugin.version>
-		<spotbugs-maven-plugin.version>4.7.3.4</spotbugs-maven-plugin.version>
+		<spring-cloud.version>2022.0.3</spring-cloud.version>
+		<dependency-check-maven.version>8.3.1</dependency-check-maven.version>
+		<maven-pmd-plugin.version>3.21.0</maven-pmd-plugin.version>
+		<spotbugs-maven-plugin.version>4.7.3.5</spotbugs-maven-plugin.version>
 		<findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
-		<versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
+		<versions-maven-plugin.version>2.16.0</versions-maven-plugin.version>
 		<maven-jxr-plugin.version>3.3.0</maven-jxr-plugin.version>
 	</properties>
 	<dependencyManagement>
